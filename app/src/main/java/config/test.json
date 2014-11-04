@@ -1,0 +1,8 @@
+{
+    "fields": [
+        {
+            "name": "text",
+            "type": "String",
+        },
+    ]
+}

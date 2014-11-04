@@ -1,0 +1,12 @@
+{
+    "syntaxVersion": "1.7",
+    "projectPackageId": "ru.vsevolodkaganovych.testprojectshurik",
+    "authority": "ru.vsevolodkaganovych.testprojectshurik.provider",
+    "providerJavaPackage": "ru.vsevolodkaganovych.testprojectshurik.provider",
+    "providerClassName": "TestProvider",
+    "sqliteOpenHelperClassName": "TestSQLiteOpenHelper",
+    "sqliteOpenHelperCallbacksClassName": "TestSQLiteOpenHelperCallbacks",
+    "databaseFileName": "test.db",
+    "databaseVersion": 1,
+    "enableForeignKeys": true,
+}
