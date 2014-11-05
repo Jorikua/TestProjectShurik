@@ -42,9 +42,10 @@ public class FragmentOdd extends ListFragment implements LoaderManager.LoaderCal
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        String[] projection = {TestColumns._ID, TestColumns.TEXT};
+        String[] projection = {TestColumns._ID, TestColumns.TEXT, TestColumns.FLAG};
+        String selection = TestColumns.FLAG + " =1";
         CursorLoader cursorLoader = new CursorLoader(getActivity().getApplicationContext(),
-                TestColumns.CONTENT_URI, projection, null, null, null);
+                TestColumns.CONTENT_URI, projection, selection, null, null);
         return cursorLoader;
     }
 
