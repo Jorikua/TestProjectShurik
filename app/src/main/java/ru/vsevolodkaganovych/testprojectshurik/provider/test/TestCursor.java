@@ -22,4 +22,12 @@ public class TestCursor extends AbstractCursor {
         Integer index = getCachedColumnIndexOrThrow(TestColumns.TEXT);
         return getString(index);
     }
+
+    /**
+     * Get the {@code flag} value.
+     * Can be {@code null}.
+     */
+    public Integer getFlag() {
+        return getIntegerOrNull(TestColumns.FLAG);
+    }
 }

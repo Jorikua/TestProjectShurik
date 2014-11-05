@@ -36,4 +36,15 @@ public class TestContentValues extends AbstractContentValues {
         return this;
     }
 
+
+    public TestContentValues putFlag(Integer value) {
+        mContentValues.put(TestColumns.FLAG, value);
+        return this;
+    }
+
+    public TestContentValues putFlagNull() {
+        mContentValues.putNull(TestColumns.FLAG);
+        return this;
+    }
+
 }

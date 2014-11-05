@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import ru.vsevolodkaganovych.testprojectshurik.BuildConfig;
+import ru.vsevolodkaganovych.testprojectshurik.provider.test.TestColumns;
 
 /**
  * Implement your custom database creation or upgrade code here.
@@ -31,7 +32,10 @@ public class TestSQLiteOpenHelperCallbacks {
     }
 
     public void onUpgrade(final Context context, final SQLiteDatabase db, final int oldVersion, final int newVersion) {
-        if (BuildConfig.DEBUG) Log.d(TAG, "Upgrading database from version " + oldVersion + " to " + newVersion);
+        if (BuildConfig.DEBUG)
+            Log.d(TAG, "Upgrading database from version " + oldVersion + " to " + newVersion);
         // Insert your upgrading code here.
+        db.execSQL("DROP TABLE IF EXISTS " + TestColumns.TABLE_NAME);
+        db.execSQL(TestSQLiteOpenHelper.SQL_CREATE_TABLE_TEST);
     }
 }

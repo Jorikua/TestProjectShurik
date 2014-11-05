@@ -17,13 +17,15 @@ public class TestColumns implements BaseColumns {
 
     public static final String _ID = BaseColumns._ID;
     public static final String TEXT = "text";
+    public static final String FLAG = "flag";
 
     public static final String DEFAULT_ORDER = TABLE_NAME + "." +_ID;
 
     // @formatter:off
     public static final String[] FULL_PROJECTION = new String[] {
             TABLE_NAME + "." + _ID + " AS " + BaseColumns._ID,
-            TABLE_NAME + "." + TEXT
+            TABLE_NAME + "." + TEXT,
+            TABLE_NAME + "." + FLAG
     };
     // @formatter:on
 
@@ -31,6 +33,7 @@ public class TestColumns implements BaseColumns {
     static {
         ALL_COLUMNS.add(_ID);
         ALL_COLUMNS.add(TEXT);
+        ALL_COLUMNS.add(FLAG);
     }
 
     public static boolean hasColumns(String[] projection) {

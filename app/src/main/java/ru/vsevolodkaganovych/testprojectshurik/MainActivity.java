@@ -68,6 +68,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                     public void onClick(DialogInterface dialog, int whichButton) {
                         ContentValues cv = new ContentValues();
                         cv.put(TestColumns.TEXT, input.getText().toString());
+                        int flag = (input.getText().toString().length()%2==0)?0:1;
+                        cv.put(TestColumns.FLAG, flag);
                         getContentResolver().insert(TestColumns.CONTENT_URI, cv);
                     }
                 });

@@ -17,16 +17,17 @@ public class TestSQLiteOpenHelper extends SQLiteOpenHelper {
     private static final String TAG = TestSQLiteOpenHelper.class.getSimpleName();
 
     public static final String DATABASE_FILE_NAME = "test.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 4;
     private static TestSQLiteOpenHelper sInstance;
     private final Context mContext;
     private final TestSQLiteOpenHelperCallbacks mOpenHelperCallbacks;
 
     // @formatter:off
-    private static final String SQL_CREATE_TABLE_TEST = "CREATE TABLE IF NOT EXISTS "
+    public static final String SQL_CREATE_TABLE_TEST = "CREATE TABLE IF NOT EXISTS "
             + TestColumns.TABLE_NAME + " ( "
             + TestColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + TestColumns.TEXT + " TEXT "
+            + TestColumns.TEXT + " TEXT, "
+            + TestColumns.FLAG + " INTEGER "
             + " );";
 
     // @formatter:on

@@ -4,5 +4,9 @@
             "name": "text",
             "type": "String",
         },
+        {
+             "name": "flag",
+             "type": "Integer",
+        },
     ]
 }

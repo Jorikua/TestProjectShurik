@@ -67,4 +67,34 @@ public class TestSelection extends AbstractSelection<TestSelection> {
         addLike(TestColumns.TEXT, value);
         return this;
     }
+
+    public TestSelection flag(Integer... value) {
+        addEquals(TestColumns.FLAG, value);
+        return this;
+    }
+
+    public TestSelection flagNot(Integer... value) {
+        addNotEquals(TestColumns.FLAG, value);
+        return this;
+    }
+
+    public TestSelection flagGt(int value) {
+        addGreaterThan(TestColumns.FLAG, value);
+        return this;
+    }
+
+    public TestSelection flagGtEq(int value) {
+        addGreaterThanOrEquals(TestColumns.FLAG, value);
+        return this;
+    }
+
+    public TestSelection flagLt(int value) {
+        addLessThan(TestColumns.FLAG, value);
+        return this;
+    }
+
+    public TestSelection flagLtEq(int value) {
+        addLessThanOrEquals(TestColumns.FLAG, value);
+        return this;
+    }
 }

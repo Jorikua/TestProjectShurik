@@ -7,6 +7,6 @@
     "sqliteOpenHelperClassName": "TestSQLiteOpenHelper",
     "sqliteOpenHelperCallbacksClassName": "TestSQLiteOpenHelperCallbacks",
     "databaseFileName": "test.db",
-    "databaseVersion": 1,
+    "databaseVersion": 4,
     "enableForeignKeys": true,
 }

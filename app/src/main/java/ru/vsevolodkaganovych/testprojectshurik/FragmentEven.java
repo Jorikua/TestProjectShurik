@@ -29,6 +29,7 @@ public class FragmentEven extends ListFragment implements LoaderManager.LoaderCa
         getLoaderManager().initLoader(URL_LOADER_EVEN, null, this);
 
         String[] projection = {TestColumns._ID, TestColumns.TEXT};
+
         Cursor cursor = getActivity().getContentResolver().query(TestColumns.CONTENT_URI, projection, null, null, null);
 
         cursor.setNotificationUri(getActivity().getContentResolver(), TestColumns.CONTENT_URI);
@@ -44,7 +45,8 @@ public class FragmentEven extends ListFragment implements LoaderManager.LoaderCa
 
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
-        String[] projection = {TestColumns._ID, TestColumns.TEXT};
+        String[] projection = {TestColumns._ID, TestColumns.TEXT, TestColumns.FLAG};
+        String selection;
         CursorLoader cursorLoader = new CursorLoader(getActivity().getApplicationContext(),
                 TestColumns.CONTENT_URI, projection, null, null, null);
         return cursorLoader;
