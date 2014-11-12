@@ -9,6 +9,7 @@ import android.support.v4.app.ListFragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -23,6 +24,7 @@ public class FragmentOdd extends ListFragment implements LoaderManager.LoaderCal
 
     private static final int URL_LOADER_ODD = 1;
     private CustomAdapter mAdapter;
+    private String mQuery;
 
     @Nullable
     @Override
@@ -59,11 +61,16 @@ public class FragmentOdd extends ListFragment implements LoaderManager.LoaderCal
             }
 
             @Override
-            public boolean onQueryTextChange(String query) {
-                Bundle bundle = new Bundle();
-                bundle.putString("SearchQuery", query);
-                getLoaderManager().restartLoader(URL_LOADER_ODD, bundle, FragmentOdd.this);
-
+            public boolean onQueryTextChange(String newText) {
+//                Bundle bundle = new Bundle();
+//                bundle.putString("SearchQuery", query);
+//                getLoaderManager().restartLoader(URL_LOADER_ODD, bundle, FragmentOdd.this);
+                if (TextUtils.isEmpty(newText)) {
+                    mQuery = "";
+                } else {
+                    mQuery = newText;
+                }
+                getLoaderManager().restartLoader(URL_LOADER_ODD, null, FragmentOdd.this);
                 return true;
             }
         });
@@ -77,9 +84,9 @@ public class FragmentOdd extends ListFragment implements LoaderManager.LoaderCal
 //        String selection = TestColumns.FLAG + " =1";
         String selection = null;
         String[] selectionArgs = null;
-        if (bundle != null) {
+        if (mQuery != null) {
             selection = TestColumns.TEXT + " like ? " + " AND " + TestColumns.FLAG + " =?";
-            selectionArgs = new String[] {"%" + bundle.getString("SearchQuery") + "%", "1"};
+            selectionArgs = new String[] {"%" + mQuery + "%", "1"};
         }
         CursorLoader cursorLoader = new CursorLoader(getActivity().getApplicationContext(),
                 TestColumns.CONTENT_URI, projection, selection, selectionArgs, null);
